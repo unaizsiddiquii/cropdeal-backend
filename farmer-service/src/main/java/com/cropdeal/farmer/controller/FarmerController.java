@@ -2,6 +2,7 @@ package com.cropdeal.farmer.controller;
 
 import com.cropdeal.farmer.dto.FarmerDTO;
 import com.cropdeal.farmer.service.FarmerService;
+import com.cropdeal.farmer.service.FarmerServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,8 @@ public class FarmerController {
 
     @GetMapping("/{id}")
     public ResponseEntity<FarmerDTO> getFarmerById(@PathVariable Long id) {
-        return farmerService.getFarmerById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+        FarmerDTO farmerDTO = farmerService.getFarmerById(id);
+        return ResponseEntity.ok(farmerDTO);
     }
 
     @GetMapping
