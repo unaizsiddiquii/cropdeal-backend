@@ -1,6 +1,7 @@
 package com.cropdeal.farmer.service;
 
 import com.cropdeal.farmer.entity.Farmer;
+import com.cropdeal.farmer.exception.FarmerNotFoundException;
 import com.cropdeal.farmer.exception.ResourceNotFoundException;
 import com.cropdeal.farmer.dto.FarmerDTO;
 import com.cropdeal.farmer.mapper.FarmerMapper;
@@ -29,8 +30,9 @@ public class FarmerServiceImpl implements FarmerService {
     }
 
     @Override
-    public Optional<FarmerDTO> getFarmerById(Long id) {
-        return farmerRepository.findById(id).map(FarmerMapper::mapToFarmerDTO);
+    public FarmerDTO getFarmerById(Long id) {
+        Farmer farmer = farmerRepository.findById(id).orElseThrow(() -> new FarmerNotFoundException("Farmer with ID " + id + " not found"));
+        return FarmerMapper.mapToFarmerDTO(farmer);
     }
 
     @Override

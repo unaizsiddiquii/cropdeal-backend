@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface FarmerService {
     FarmerDTO createFarmer(FarmerDTO farmerDTO);
 
-    Optional<FarmerDTO> getFarmerById(Long id);
+    FarmerDTO getFarmerById(Long id);
 
     List<FarmerDTO> getAllFarmers();
 
