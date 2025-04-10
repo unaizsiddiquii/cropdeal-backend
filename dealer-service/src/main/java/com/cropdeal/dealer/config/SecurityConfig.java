@@ -1,4 +1,4 @@
-package com.cropdeal.farmer.config;
+package com.cropdeal.dealer.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
