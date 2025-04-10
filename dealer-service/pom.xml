@@ -8,11 +8,11 @@
         <version>3.4.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.cropdeal</groupId>
-    <artifactId>farmer-service</artifactId>
+    <groupId>com.cropdeal.dealer</groupId>
+    <artifactId>dealer-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>farmer-service</name>
-    <description>farmer-service</description>
+    <name>dealer-service</name>
+    <description>dealer service</description>
     <url/>
     <licenses>
         <license/>
@@ -31,7 +31,15 @@
         <spring-cloud.version>2024.0.1</spring-cloud.version>
     </properties>
     <dependencies>
-
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>3.0.2</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>

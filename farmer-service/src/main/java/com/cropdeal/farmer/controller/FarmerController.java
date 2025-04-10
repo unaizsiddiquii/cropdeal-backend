@@ -2,7 +2,6 @@ package com.cropdeal.farmer.controller;
 
 import com.cropdeal.farmer.dto.FarmerDTO;
 import com.cropdeal.farmer.service.FarmerService;
-import com.cropdeal.farmer.service.FarmerServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
