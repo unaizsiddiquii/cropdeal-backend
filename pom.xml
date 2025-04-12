@@ -12,7 +12,11 @@
         <module>config-server</module>
         <module>eureka-server</module>
         <module>farmer-service</module>
+        <module>farmer-service</module>
         <module>dealer-service</module>
+        <module>crop-service</module>
+        <module>payment-service</module>
+        <module>admin-service</module>
         <!-- aur bhi services -->
     </modules>
 </project>
