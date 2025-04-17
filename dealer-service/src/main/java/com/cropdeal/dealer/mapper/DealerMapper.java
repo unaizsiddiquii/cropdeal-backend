@@ -9,6 +9,7 @@ public class DealerMapper {
                 .dealerName(dealer.getDealerName())
                 .email(dealer.getEmail())
                 .phone(dealer.getPhone())
+                .active(dealer.isActive())
                 .address(dealer.getAddress()).build();
     }
 
@@ -17,6 +18,7 @@ public class DealerMapper {
                 .dealerName(dto.getDealerName())
                 .phone(dto.getPhone())
                 .email(dto.getEmail())
+                .active(dto.isActive())
                 .address(dto.getAddress()).build();
     }
 }

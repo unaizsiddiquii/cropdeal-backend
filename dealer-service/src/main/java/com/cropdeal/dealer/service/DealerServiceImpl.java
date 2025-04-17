@@ -49,6 +49,7 @@ public class DealerServiceImpl implements DealerService {
         dealer.setPhone(dealerDTO.getPhone());
         dealer.setEmail(dealerDTO.getEmail());
         dealer.setAddress(dealerDTO.getAddress());
+        dealer.setActive(dealerDTO.isActive());
         Dealer updatedDealer = dealerRepository.save(dealer);
         return DealerMapper.mapToDealerDTO(updatedDealer);
     }
@@ -57,6 +58,15 @@ public class DealerServiceImpl implements DealerService {
     public void deleteDealer(Long id) {
         Dealer dealer = dealerRepository.findById(id).orElseThrow(() -> new DealerNotFoundException(String.format(ID_NOT_FOUND, id)));
         dealerRepository.delete(dealer);
+    }
+
+    @Override
+    public DealerDTO updateDealerStatus(Long id, boolean active) {
+        Dealer dealer = dealerRepository.findById(id).orElseThrow(() -> new DealerNotFoundException(String.format(ID_NOT_FOUND, id)));
+        dealer.setActive(active);
+        dealerRepository.save(dealer);
+        return DealerMapper.mapToDealerDTO(dealer);
+
     }
 
 

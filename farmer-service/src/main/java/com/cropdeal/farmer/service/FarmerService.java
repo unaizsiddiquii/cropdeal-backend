@@ -3,7 +3,6 @@ package com.cropdeal.farmer.service;
 import com.cropdeal.farmer.dto.FarmerDTO;
 
 import java.util.List;
-import java.util.Optional;
 
 
 public interface FarmerService {
@@ -15,7 +14,8 @@ public interface FarmerService {
 
     FarmerDTO updateFarmer(Long id, FarmerDTO farmerDTO);
 
-
     void deleteFarmer(Long id);
+
+    FarmerDTO updateFarmerStatus(Long id, boolean active);
 
 }
