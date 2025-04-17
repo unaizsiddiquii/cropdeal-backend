@@ -3,6 +3,7 @@ package com.cropdeal.farmer.controller;
 import com.cropdeal.farmer.dto.FarmerDTO;
 import com.cropdeal.farmer.service.FarmerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,5 +43,11 @@ public class FarmerController {
     public ResponseEntity<Void> deleteFarmer(@PathVariable Long id) {
         farmerService.deleteFarmer(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}/status")
+    public ResponseEntity<FarmerDTO> updateFarmerStatus(@PathVariable Long id, @RequestParam boolean active) {
+        FarmerDTO updated = farmerService.updateFarmerStatus(id, active);
+        return new ResponseEntity<>(updated, HttpStatus.OK);
     }
 }

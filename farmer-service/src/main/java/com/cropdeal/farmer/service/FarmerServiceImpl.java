@@ -9,8 +9,7 @@ import com.cropdeal.farmer.repository.FarmerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @Service
 public class FarmerServiceImpl implements FarmerService {
@@ -37,7 +36,7 @@ public class FarmerServiceImpl implements FarmerService {
 
     @Override
     public List<FarmerDTO> getAllFarmers() {
-        return farmerRepository.findAll().stream().map(FarmerMapper::mapToFarmerDTO).collect(Collectors.toList());
+        return farmerRepository.findAll().stream().map(FarmerMapper::mapToFarmerDTO).toList();
     }
 
     @Override
@@ -61,5 +60,13 @@ public class FarmerServiceImpl implements FarmerService {
         }
         farmerRepository.deleteById(id);
 
+    }
+
+    @Override
+    public FarmerDTO updateFarmerStatus(Long id, boolean active) {
+        Farmer farmer = farmerRepository.findById(id).orElseThrow(() -> new FarmerNotFoundException("Farmer not found with id: " + id));
+        farmer.setActive(active);
+        Farmer updated = farmerRepository.save(farmer);
+        return FarmerMapper.mapToFarmerDTO(updated);
     }
 }

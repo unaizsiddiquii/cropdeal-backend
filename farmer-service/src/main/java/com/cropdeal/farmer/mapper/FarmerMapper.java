@@ -13,6 +13,7 @@ public class FarmerMapper {
                 .address(farmer.getAddress())
                 .bankAccountNumber(farmer.getBankAccountNumber())
                 .ifscCode(farmer.getIfscCode())
+                .active(farmer.isActive())
                 .build();
     }
 
@@ -25,6 +26,7 @@ public class FarmerMapper {
                 .address(dto.getAddress())
                 .bankAccountNumber(dto.getBankAccountNumber())
                 .ifscCode(dto.getIfscCode())
+                .active(dto.isActive())
                 .build();
     }
 }

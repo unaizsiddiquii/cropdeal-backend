@@ -1,9 +1,6 @@
 package com.cropdeal.dealer.dto;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,5 +29,8 @@ public class DealerDTO {
     @NotBlank(message = "Address is required")
     @Size(min = 3, max = 50, message = "Full address required")
     private String address;
+
+    @NotNull(message = "Active status must not be null")
+    private boolean active;
 
 }

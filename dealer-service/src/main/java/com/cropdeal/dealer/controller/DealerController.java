@@ -47,5 +47,11 @@ public class DealerController {
         return ResponseEntity.noContent().build();
     }
 
+    @PutMapping("/{id}/status")
+    public ResponseEntity<DealerDTO> updateDealerStatus(@PathVariable Long id, @RequestParam boolean active) {
+        DealerDTO updated = dealerService.updateDealerStatus(id, active);
+        return new ResponseEntity<>(updated, HttpStatus.OK);
+    }
+
 
 }

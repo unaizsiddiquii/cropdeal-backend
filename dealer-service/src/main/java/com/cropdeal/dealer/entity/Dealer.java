@@ -31,5 +31,7 @@ public class Dealer {
     @Column(nullable = false)
     private String address;
 
+    @Column(nullable = false)
+    private boolean active;
 
 }
